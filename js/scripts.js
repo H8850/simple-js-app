@@ -8,6 +8,7 @@ let pokemonList = [
   {name: 'Pidgey', height: 0.3, type: ['Flying', 'Normal']},
   {name: 'Rattata', height: 0.3, type: ['Normal']},
   {name: 'Ekans', height: 0.2, type: ['Poison']},
+  {name: 'Moltres', height: 2, type: ['Fire', 'Flying']},
 ];
 
 for (let i = 0; i < pokemonList.length; i++) {
