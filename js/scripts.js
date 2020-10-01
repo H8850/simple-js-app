@@ -11,5 +11,9 @@ let pokemonList = [
 ];
 
 for (let i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ", " + pokemonList[i].height + " meters tall."+("<br />") );
+  document.write(pokemonList[i].name +
+                                " (" +
+                                pokemonList[i].height +
+                                " meters tall)" +
+                                ("<br />") );
 }
