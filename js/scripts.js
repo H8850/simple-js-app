@@ -1,20 +1,36 @@
 //second task
-let pokemonList = [
-  {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Poison']},
-  {name: 'Charmander', height: 0.6, type: ['Fire']},
-  {name: 'Squirtle', height: 0.5, type: ['Water']},
-  {name: 'Caterpie', height: 0.3, type: ['Bug']},
-  {name: 'Weedle', height: 0.3, type: ['Bug', 'Poison']},
-  {name: 'Pidgey', height: 0.3, type: ['Flying', 'Normal']},
-  {name: 'Rattata', height: 0.3, type: ['Normal']},
-  {name: 'Ekans', height: 0.2, type: ['Poison']},
-  {name: 'Moltres', height: 2, type: ['Fire', 'Flying']},
-];
+let pokemonRepository = (function () {
+  let pokemonList = [
+    {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Poison']},
+    {name: 'Charmander', height: 0.6, type: ['Fire']},
+    {name: 'Squirtle', height: 0.5, type: ['Water']},
+    {name: 'Caterpie', height: 0.3, type: ['Bug']},
+    {name: 'Weedle', height: 0.3, type: ['Bug', 'Poison']},
+    {name: 'Pidgey', height: 0.3, type: ['Flying', 'Normal']},
+    {name: 'Rattata', height: 0.3, type: ['Normal']},
+    {name: 'Ekans', height: 0.2, type: ['Poison']},
+    {name: 'Moltres', height: 2, type: ['Fire', 'Flying']},
+  ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 1) {
-    document.write(pokemonList[i].name + " (" +  pokemonList[i].height + " meters tall" + ") " + "-Wow, that's a big one!" + "<br />");
-  }else {
-    document.write(pokemonList[i].name + " (" +  pokemonList[i].height + " meters tall" + ") " + "<br />");
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
-}
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add:add,
+    getAll: getAll
+  };
+
+})();
+
+document.write( pokemonRepository.getAll() );
+console.log( pokemonRepository.getAll() );
+
+//old forEach loop to call pokemonList
+/*pokemonList.forEach(function(pokemon) {
+document.write(pokemon.name + ' is ' + pokemon.height + ' meters tall' + '<br />');
+});*/
