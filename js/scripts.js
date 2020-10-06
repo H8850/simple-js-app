@@ -1,4 +1,4 @@
-//second task
+
 let pokemonRepository = (function () {
   let pokemonList = [
     {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Poison']},
@@ -27,10 +27,8 @@ let pokemonRepository = (function () {
 
 })();
 
-document.write( pokemonRepository.getAll() );
-console.log( pokemonRepository.getAll() );
+//forEach to print pokemon
 
-//old forEach loop to call pokemonList
-/*pokemonList.forEach(function(pokemon) {
+pokemonRepository.getAll().forEach(function(pokemon){
 document.write(pokemon.name + ' is ' + pokemon.height + ' meters tall' + '<br />');
-});*/
+})
