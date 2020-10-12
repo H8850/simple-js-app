@@ -13,6 +13,7 @@ let pokemonRepository = (function () {
     {name: 'Ekans', height: 0.2, type: ['Poison']},
     {name: 'Moltres', height: 2, type: ['Fire', 'Flying']},
   ];
+  
   //Function to add additional pokemon
   function add(pokemon) {
     if (
@@ -25,10 +26,12 @@ let pokemonRepository = (function () {
       console.log("pokemon is not correct");
     }
   }
+
   // function to get the complete pokemon list
   function getAll() {
     return repository;
   }
+
   //function to create list of buttons
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
@@ -55,8 +58,10 @@ let pokemonRepository = (function () {
     addListItem: addListItem,
   };
 })();
+
 pokemonRepository.add({ name: "Pikachu", height: 0.3, type: ["Electric"]});
 console.log(pokemonRepository.getAll());
+
 // forEach loop that calls the complete pokemon list
 pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
