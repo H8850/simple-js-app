@@ -50,7 +50,7 @@ let pokemonRepository = (function () {
     });
   }
 
-  }
+  
   // returns
   return {
     add:add,
