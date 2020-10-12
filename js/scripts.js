@@ -40,14 +40,13 @@ let pokemonRepository = (function () {
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
     //adding a listener to each button
-    let button = document.querySelector("button");
-    button.addEventListener("click", showDetails (pokemon) {
-      console.log(pokemon)
-    )};
+    let $button = document.querySelector("button");
+    button.addEventListener("click", function() {
+      showDetails(pokemon);
+      console.log(pokemon);
+    };
   }
-  //function for event listener on each pokemon button
-  function showDetails(pokemon) {
-   console.log(pokemon);
+
   }
   // returns
   return {
