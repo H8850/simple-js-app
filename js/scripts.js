@@ -13,7 +13,7 @@ let pokemonRepository = (function () {
     {name: 'Ekans', height: 0.2, type: ['Poison']},
     {name: 'Moltres', height: 2, type: ['Fire', 'Flying']},
   ];
-  
+
   //Function to add additional pokemon
   function add(pokemon) {
     if (
@@ -47,7 +47,7 @@ let pokemonRepository = (function () {
     button.addEventListener("click", function() {
       showDetails(pokemon);
       console.log(pokemon);
-    };
+    });
   }
 
   }
