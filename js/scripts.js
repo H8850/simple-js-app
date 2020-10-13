@@ -16,9 +16,10 @@ let pokemonRepository = (function () {
       console.log("pokemon is not correct");
     }
   }
+
   // function to get the complete pokemon list
   function getAll() {
-    return repository;
+    return pokemonList;
   }
 
   //function to create list of buttons
@@ -32,12 +33,11 @@ let pokemonRepository = (function () {
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
     //adding a listener to each button
-    let $button = document.querySelector("button");
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function(event) {
       showDetails(pokemon);
-      console.log(pokemon);
     });
   }
+  
 // newc code to load the list
   function loadlist() {
     return fetch(apiUrl).then(function (response) {
