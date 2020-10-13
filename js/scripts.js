@@ -71,12 +71,13 @@ let pokemonRepository = (function () {
     });
   }
 
-
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      console.log(pokemon);
+// function to log the details of the item selected
+  function showDetails(item) {
+    pokemonRepository.loadDetails(pokemon).then(function () {
+      console.log(item);
     });
   }
+
   // returns
   return {
     add:add,
