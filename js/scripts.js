@@ -37,8 +37,8 @@ let pokemonRepository = (function () {
       showDetails(pokemon);
     });
   }
-  
-// newc code to load the list
+
+// function to load the list of pokemon
   function loadlist() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -49,11 +49,12 @@ let pokemonRepository = (function () {
           detailsUrl: item.url
         };
         add(pokemon);
+        console.log(pokemon);
       });
     }).catch(function (e) {
       console.error(e);
     })
-    }
+  }
 
   function loadDetails(item) {
     let url = item.detailsUrl;
