@@ -88,17 +88,3 @@ let pokemonRepository = (function () {
     showDetails: showDetails
   };
 })();
-
-pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRespository.addlistItem(pokemon);
-  });
-});
-
-pokemonRepository.add({ name: "Pikachu", height: 0.3, type: ["Electric"]});
-console.log(pokemonRepository.getAll());
-
-// forEach loop that calls the complete pokemon list
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
-});
