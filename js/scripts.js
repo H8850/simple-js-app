@@ -2,22 +2,20 @@
 //Main Group
 let pokemonRepository = (function () {
   //Array for pokemon data
-  let repository = [];
+  let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //Function to add additional pokemon
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
-      "name" in pokemon &&
-      "height" in pokemon &&
-      "type" in pokemon
+      "name" in pokemon
     ) {
-        repository.push(pokemon);} else {
+      pokemonList.push(pokemon);
+    } else {
       console.log("pokemon is not correct");
     }
   }
-
   // function to get the complete pokemon list
   function getAll() {
     return repository;
