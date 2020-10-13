@@ -2,17 +2,8 @@
 //Main Group
 let pokemonRepository = (function () {
   //Array for pokemon data
-  let repository = [
-    {name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Poison']},
-    {name: 'Charmander', height: 0.6, type: ['Fire']},
-    {name: 'Squirtle', height: 0.5, type: ['Water']},
-    {name: 'Caterpie', height: 0.3, type: ['Bug']},
-    {name: 'Weedle', height: 0.3, type: ['Bug', 'Poison']},
-    {name: 'Pidgey', height: 0.3, type: ['Flying', 'Normal']},
-    {name: 'Rattata', height: 0.3, type: ['Normal']},
-    {name: 'Ekans', height: 0.2, type: ['Poison']},
-    {name: 'Moltres', height: 2, type: ['Fire', 'Flying']},
-  ];
+  let repository = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //Function to add additional pokemon
   function add(pokemon) {
@@ -49,15 +40,55 @@ let pokemonRepository = (function () {
       console.log(pokemon);
     });
   }
+// newc code to load the list
+  function loadlist() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+    }
 
-  
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
   // returns
   return {
     add:add,
     getAll: getAll,
-    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 })();
+
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRespository.addlistItem(pokemon);
+  });
+});
 
 pokemonRepository.add({ name: "Pikachu", height: 0.3, type: ["Electric"]});
 console.log(pokemonRepository.getAll());
