@@ -88,3 +88,10 @@ let pokemonRepository = (function () {
     showDetails: showDetails
   };
 })();
+
+//calling functions to load the list
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
+});
