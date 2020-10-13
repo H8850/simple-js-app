@@ -56,11 +56,13 @@ let pokemonRepository = (function () {
     })
   }
 
+// function to load list item details
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+      //this coade adds the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
@@ -68,6 +70,7 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
+
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
