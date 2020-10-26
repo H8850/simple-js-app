@@ -73,11 +73,42 @@ let pokemonRepository = (function () {
     });
   }
 
+
+
   // function to log the details of the item selected
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
       showModal(item);
     });
+  }
+
+  //creates a modal
+
+  function showModal(text) {
+
+    // defining parts of modal
+    let modalTitle = document.querySelector('.modal-title');
+    modalTitle.innerText = text.name;
+
+    let modalBody = document.querySelector('.modal-body');
+    modalBody.innerHTML = '';
+
+    let imageElement = document.createElement('img');
+    imageElement.src = text.imageURL;
+
+    let heightElement = document.createElement('p');
+    heightElement.innerText = 'Height: ' + text.height;
+
+    let weightElement = document.createElement('p');
+    weightElement.innerText = 'Weight: ' + text.weight;
+
+    let typesElement = document.createElement('p');
+    typesElement.innerText = 'Types: ' + text.types;
+
+    modalBody.append(imageElement);
+    modalBody.append(heightElement);
+    modalBody.append(weightElement);
+    modalBody.append(typesElement);
   }
 
   // returns
@@ -87,7 +118,8 @@ let pokemonRepository = (function () {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
+    showDetails: showDetails,
+    showModal: showModal
   };
 })();
 
@@ -97,8 +129,3 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-////functions to show the modal in the browser
-function showModal(item) {
-
-}
