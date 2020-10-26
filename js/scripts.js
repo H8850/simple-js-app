@@ -40,7 +40,7 @@ let pokemonRepository = (function () {
     });
   }
 
-// function to load the list of pokemon
+  // function to load the list of pokemon
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -58,7 +58,7 @@ let pokemonRepository = (function () {
     })
   }
 
-// function to load list item details
+  // function to load list item details
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -73,7 +73,7 @@ let pokemonRepository = (function () {
     });
   }
 
-// function to log the details of the item selected
+  // function to log the details of the item selected
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
       showModal(item);
@@ -99,3 +99,6 @@ pokemonRepository.loadList().then(function () {
 });
 
 ////functions to show the modal in the browser
+function showModal(item) {
+
+}
