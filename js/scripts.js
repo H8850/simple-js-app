@@ -30,12 +30,14 @@ let pokemonRepository = (function () {
     // adding pokemon buttons
     let button = document.createElement("button");
     button.innerText = pokemon.name;
-    button.classList.add("button-class");
+    button.classList.add("btn", "btn-secondary", "btn-block");
+    button.setAttribute("data-target", '#pokedexmodal');
+    button.setAttribute('data-toggle', 'modal');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
 
     //adding a listener to each button
-    button.addEventListener("click", function(event) {
+    button.addEventListener("click", function() {
       showDetails(pokemon);
     });
   }
@@ -73,8 +75,6 @@ let pokemonRepository = (function () {
     });
   }
 
-
-
   // function to log the details of the item selected
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
@@ -83,7 +83,6 @@ let pokemonRepository = (function () {
   }
 
   //creates a modal
-
   function showModal(text) {
 
     // defining parts of modal
