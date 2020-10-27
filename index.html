@@ -7,51 +7,65 @@
     <!-- link to bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="img/poke_ball.png" sizes="32x32" />
     <title>Pokédex</title>
   </head>
 
 
   <body>
 
-    <!-- Header -->
-    <header>
-      <div class="main-header">
-        <a class="logo-link" href="https://pokeapi.co/" target="_blank">
-          <img src="#" alt="Pokeball logo">
-        </a>
-        <h1>Pokédex</h1>
-      </div>
-    </header>
+    <!-- ########## HEADER ########## -->
+     <header>
 
-    <div class="pokedex-drop-down">
-      <ul class="pokemon-list"></ul>
-    </div>
+       <!-- ##### NavBar ##### -->
+        <nav class="navbar navbar-light bg-light sticky-top">
+          <a class="navbar-brand" href"#">
+            <img src="img/poke_ball.png"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt="A Pokeball">
+            Pokédex
+          </a>
+          <span class="navbar-text">Click a Pokemon to see its details</span>
+        </nav>
 
-    <!-- Button modal -->
-    <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Launch demo modal
-    </button>-->
+     </header><!-- End of Header -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
-          </div>
-        </div>
-      </div>
-    </div>
 
+     <!-- ########## MAIN WRAP ########## -->
+     <div class="main-wrap">
+
+       <!-- ##### Pokemon List ##### -->
+       <div class="pokedex-drop-down">
+         <ul class="pokemon-list list-group"></ul>
+       </div><!-- End of Pokemon List -->
+
+       <!-- ##### Modal Container ##### -->
+       <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="modal-container" aria-hidden="true">
+         <div class="modal-dialog modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header"></div>
+             <div class="modal-body"></div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+           </div>
+         </div>
+       </div><!-- End of Modal Container -->
+     </div><!-- End of Main Wrap -->
+     <div class="img-wrap">
+       <img src="img/oak.png"
+       width=""
+       height=""
+       alt="A picture of professor Oak">
+     </div>
+
+     <!-- ########## FOOTER ########## -->
+     <footer class="navbar navbar-light bg-light">
+
+     </footer>
+     <!-- End of Footer -->
 
     <!-- scripts for promise and fetch -->
     <script src="js/promise-polyfill.js"></script>
