@@ -1,6 +1,5 @@
-
 //IIFE
-let pokemonRepository = (function() {
+let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -31,14 +30,13 @@ let pokemonRepository = (function() {
     pokemonList.append(listOfPokemon);
     listOfPokemon.append(button);
 
-    
     button.innerText = pokemon.name;
     button.classList.add('btn');
     button.classList.add('btn-light');
     button.classList.add('button-list');
 
     //Console.log the pokemon
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
       showDetails(pokemon);
     });
   }
@@ -46,11 +44,11 @@ let pokemonRepository = (function() {
   // Importing List of Pokemon from API
   function loadList() {
     return fetch(apiUrl)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(json) {
-        json.results.forEach(function(item) {
+      .then(function (json) {
+        json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
             detailsUrl: item.url,
@@ -58,7 +56,7 @@ let pokemonRepository = (function() {
           add(pokemon);
         });
       })
-      .catch(function(e) {
+      .catch(function (e) {
         console.error(e);
       });
   }
@@ -67,10 +65,10 @@ let pokemonRepository = (function() {
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(function(details) {
+      .then(function (details) {
         // Now we add the details to the item
         item.name = details.name;
         item.imageUrl = details.sprites.other.dream_world.front_default;
@@ -79,7 +77,7 @@ let pokemonRepository = (function() {
         item.types = details.types;
         item.abilities = details.abilities;
       })
-      .catch(function(e) {
+      .catch(function (e) {
         console.error(e);
       });
   }
@@ -119,7 +117,7 @@ let pokemonRepository = (function() {
 
     //creating element for type in modal conetnt
     let typesElement = document.createElement('p');
-    item.types.forEach(function(el, index) {
+    item.types.forEach(function (el, index) {
       if (item.types.length - 2 == index) {
         typesElement.textContent += 'Type : ' + el.type.name + ', ';
       } else {
@@ -129,7 +127,7 @@ let pokemonRepository = (function() {
 
     //creating element for abilities in modal content
     let abilitiesElement = document.createElement('p');
-    item.abilities.forEach(function(el, index) {
+    item.abilities.forEach(function (el, index) {
       if (item.abilities.length - 1 == index) {
         abilitiesElement.textContent += 'Ability : ' + el.ability.name;
       } else {
@@ -161,10 +159,9 @@ let pokemonRepository = (function() {
   };
 })();
 
-
 // This function create the element <li> & <button> inside of the HTML file to interact with.
-pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(pokemon) {
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListPokemon(pokemon);
   });
 });
