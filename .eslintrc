@@ -8,5 +8,11 @@
     ],
     "rules": {
         "quotes": ["error", "single"]
+    },
+    "standard": {
+      "globals": [
+        "$"
+      ]
     }
+
 }
