@@ -116,7 +116,7 @@ function showModal(name, img, height) {
   let closeButtonElement = document.createElement('button'); //creates the button
   closeButtonElement.classList.add('modal-close'); //adds class to button
   closeButtonElement.innerText = 'Close'; //adds text to button
-  closeButtonElement.addEventListerner('click', hideModal); //listener to close modal on click of button
+  closeButtonElement.addEventListener('click', hideModal); //listener to close modal on click of button
 
   //pokemon name
   let nameElement = document.createElement('h1');
