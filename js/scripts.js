@@ -102,6 +102,7 @@ pokemonRepository.loadList().then(function () {
 
 function showModal(name, img, height) {
 
+  let modalContainer = document.querySelector("#modal-container");
   //clear existing content
   modalContainer.innerHTML = '';
 
@@ -115,7 +116,7 @@ function showModal(name, img, height) {
   let closeButtonElement = document.createElement('button'); //creates the button
   closeButtonElement.classList.add('modal-close'); //adds class to button
   closeButtonElement.innerText = 'Close'; //adds text to button
-  close buttonElement.addEventListerner('click', hideModal); //listener to close modal on click of button
+  closeButtonElement.addEventListerner('click', hideModal); //listener to close modal on click of button
 
   //pokemon name
   let nameElement = document.createElement('h1');
